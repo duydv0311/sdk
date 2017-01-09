@@ -24,7 +24,6 @@ public class Db_SDK {
     // Database Version
     private static final int DATABASE_VERSION = 1;
 
-
     // Database Name
     private static final String DATABASE_NAME = "AndroidSDK.db";
     private SQLiteDatabase database;
