@@ -126,5 +126,7 @@ public class SystemInfor {
     
     public void aaaaa(){
     }
+    public void bbbbbb(){
+    }
 
 }
