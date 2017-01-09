@@ -123,5 +123,8 @@ public class SystemInfor {
         }
         return possibleEmail;
     }
+    
+    public void aaaaa(){
+    }
 
 }
