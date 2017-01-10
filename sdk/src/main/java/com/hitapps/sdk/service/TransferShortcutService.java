@@ -23,22 +23,28 @@ public class TransferShortcutService extends Service {
         String package_uninstalled = intent.getStringExtra("package_uninstalled");
         Log.e("aaaa", "onStartCommand: " + package_uninstalled);
         db_sdk = new Db_SDK();
-        if(!db_sdk.getAllApp().isEmpty()) {
+        if (!db_sdk.getAllApp().isEmpty()) {
             app_uninstalled = new AppAttribute();
             app_uninstalled = db_sdk.getAppFromPackage(package_uninstalled);
             if (app_uninstalled != null) {
-                app_near_by_uninstalled = db_sdk.getAppFromId(app_uninstalled.getIdApp() + 1);
-                if (AppHelper.isInstalledPackage(app_near_by_uninstalled.getPackageName(), this)) {
+                if (app_uninstalled.getIsInstall().equals("1") && app_uninstalled.getIsShowing().equals("1")) {
+                    app_near_by_uninstalled = db_sdk.getAppFromId(app_uninstalled.getIdApp() + 1);
+                    if (AppHelper.isInstalledPackage(app_near_by_uninstalled.getPackageName(), this)) {
+                        app_uninstalled.setIsInstall("0");
+                        app_uninstalled.setIsShowing("0");
+                        db_sdk.updateApp(app_uninstalled);
+                        app_near_by_uninstalled.setIsShowing("1");
+                        db_sdk.updateApp(app_near_by_uninstalled);
+                        //creat shortcut
+                    } else {
+                        app_near_by_uninstalled.setIsInstall("0");
+                        app_near_by_uninstalled.setIsShowing("0");
+                        db_sdk.updateApp(app_near_by_uninstalled);
+                    }
+                } else {
                     app_uninstalled.setIsInstall("0");
                     app_uninstalled.setIsShowing("0");
                     db_sdk.updateApp(app_uninstalled);
-                    app_near_by_uninstalled.setIsShowing("1");
-                    db_sdk.updateApp(app_near_by_uninstalled);
-                    //creat shortcut
-                } else {
-                    app_near_by_uninstalled.setIsInstall("0");
-                    app_near_by_uninstalled.setIsShowing("0");
-                    db_sdk.updateApp(app_near_by_uninstalled);
                 }
             }
         }

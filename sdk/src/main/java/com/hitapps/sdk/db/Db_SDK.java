@@ -54,9 +54,7 @@ public class Db_SDK {
             onCreate(database);
         } catch (SQLiteException ex) {
             onCreate(database);
-        } finally {
         }
-
     }
 
     public void onCreate(SQLiteDatabase sqLiteDatabase) {

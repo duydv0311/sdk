@@ -38,15 +38,15 @@
             android:enabled="true"
             android:exported="true" />
 
-        <!--<receiver android:name="com.hitapps.sdk.broadcast.InstallAndUninstallReceiver">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.PACKAGE_ADDED" />-->
-                <!--<action android:name="android.intent.action.PACKAGE_REMOVED" />-->
+        <receiver android:name="com.hitapps.sdk.broadcast.InstallAndUninstallReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
 
-                <!--<category android:name="android.intent.category.DEFAULT" />-->
-                <!--<data android:scheme="package" />-->
-            <!--</intent-filter>-->
-        <!--</receiver>-->
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
