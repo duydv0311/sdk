@@ -13,7 +13,6 @@ import retrofit2.http.Url;
  */
 
 public interface RetrofitPost {
-    @FormUrlEncoded
-    @POST
+    @POST("api/apps/install/")
     Call<UserInfor> postUserInfor(@Body UserInfor userInfor);
 }

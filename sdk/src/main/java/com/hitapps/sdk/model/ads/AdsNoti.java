@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 
 public class AdsNoti implements Serializable {
-    @SerializedName("app")
+    @SerializedName("apps")
     private ArrayList<AdsApp> appArrayList;
     @SerializedName("title_noti")
     private String title_noti;

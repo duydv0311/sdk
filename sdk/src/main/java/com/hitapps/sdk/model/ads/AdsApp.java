@@ -1,5 +1,8 @@
 package com.hitapps.sdk.model.ads;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
@@ -8,7 +11,7 @@ import java.io.Serializable;
  * Created by Duy on 1/11/2017.
  */
 
-public class AdsApp implements Serializable {
+public class AdsApp implements Parcelable {
     @SerializedName("title")
     private String title_app;
     @SerializedName("desc")
@@ -26,6 +29,28 @@ public class AdsApp implements Serializable {
 
     public AdsApp() {
     }
+
+    protected AdsApp(Parcel in) {
+        title_app = in.readString();
+        description_app = in.readString();
+        logo_app = in.readString();
+        banner_app = in.readString();
+        link = in.readString();
+        package_name = in.readString();
+        display_type = in.readString();
+    }
+
+    public static final Creator<AdsApp> CREATOR = new Creator<AdsApp>() {
+        @Override
+        public AdsApp createFromParcel(Parcel in) {
+            return new AdsApp(in);
+        }
+
+        @Override
+        public AdsApp[] newArray(int size) {
+            return new AdsApp[size];
+        }
+    };
 
     public String getTitle_app() {
         return title_app;
@@ -81,5 +106,21 @@ public class AdsApp implements Serializable {
 
     public void setDisplay_type(String display_type) {
         this.display_type = display_type;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(title_app);
+        parcel.writeString(description_app);
+        parcel.writeString(logo_app);
+        parcel.writeString(banner_app);
+        parcel.writeString(link);
+        parcel.writeString(package_name);
+        parcel.writeString(display_type);
     }
 }

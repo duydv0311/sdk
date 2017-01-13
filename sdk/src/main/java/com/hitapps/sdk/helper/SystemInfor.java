@@ -123,10 +123,4 @@ public class SystemInfor {
         }
         return possibleEmail;
     }
-    
-    public void aaaaa(){
-    }
-    public void bbbbbb(){
-    }
-
 }

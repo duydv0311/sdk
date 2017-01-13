@@ -1,6 +1,7 @@
 package com.hitapps.sdk.retrofitInterface;
 
 import com.hitapps.sdk.model.ads.AdsApp;
+import com.hitapps.sdk.model.ads.AdsNoti;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -14,5 +15,5 @@ import retrofit2.http.Url;
 public interface RetrofitGet {
     @Streaming
     @GET
-    Call<AdsApp> getNoti(@Url String url);
+    Call<AdsNoti> getNoti(@Url String url);
 }

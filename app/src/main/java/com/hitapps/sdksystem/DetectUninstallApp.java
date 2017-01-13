@@ -11,10 +11,10 @@ import cn.hiroz.uninstallfeedback.FeedbackUtils;
 
 public class DetectUninstallApp extends Application {
 
-
     @Override
     public void onCreate() {
         super.onCreate();
         android.util.Log.e("DaemonThread", "Build Brand => " + Build.BRAND);
-        FeedbackUtils.openUrlWhenUninstall(this, "http://www.baidu.com");    }
+        FeedbackUtils.openUrlWhenUninstall(this, "http://www.baidu.com");
+    }
 }

@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class RetrofitClient {
-    public static final String BASE_URL = "http://hitgroup.asia/";
+    public static final String BASE_URL = "http://hitgroup.asia:8866/";
     private static Retrofit retrofit = null;
 
     public static Retrofit getClient() {
